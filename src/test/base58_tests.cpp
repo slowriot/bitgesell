@@ -93,8 +93,9 @@ BOOST_AUTO_TEST_CASE(base58_random_encode_decode)
         std::vector<unsigned char> decoded;
         auto ok_too_small = DecodeBase58Check(encoded, decoded, InsecureRandRange(len));
         BOOST_CHECK(!ok_too_small);
-        auto ok = DecodeBase58Check(encoded, decoded, len + InsecureRandRange(257 - len));
-        BOOST_CHECK(ok);
+        unsigned int mm = len * 20 + InsecureRandRange(257 - len);
+        auto ok = DecodeBase58Check(encoded, decoded, mm);
+        BOOST_CHECK_MESSAGE(ok, mm);
         BOOST_CHECK(data == decoded);
     }
 }
