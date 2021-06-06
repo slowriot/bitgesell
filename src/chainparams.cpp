@@ -180,6 +180,7 @@ public:
         consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // one day
+        consensus.nPowTargetSpacing = 10 * 60;
         consensus.signet_blocks = false;
         consensus.signet_challenge.clear();
         consensus.fPowAllowMinDifficultyBlocks = true;
